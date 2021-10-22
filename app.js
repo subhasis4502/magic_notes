@@ -23,6 +23,7 @@ document.getElementById("addBtn").addEventListener("click", function (e) {
     notesTitleObj.push(noteTitle.value);
     notesObj.push(note.value);
     if (imp.checked) impObj.push("on");
+    else impObj.push("off");
 
     localStorage.setItem("notesTitle", JSON.stringify(notesTitleObj));
     localStorage.setItem("notes", JSON.stringify(notesObj));
