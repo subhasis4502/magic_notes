@@ -31,7 +31,7 @@ document.getElementById("addBtn").addEventListener("click", function (e) {
 
     noteTitle.value = "";
     note.value = "";
-    imp.value = "";
+    imp.checked = false;
 
     showNotes();
   } else {
