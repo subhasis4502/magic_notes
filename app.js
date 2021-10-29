@@ -2,10 +2,12 @@ showNotes();
 
 // Adding node to localstorage
 document.getElementById("addBtn").addEventListener("click", function (e) {
+  // Selecting the elements
   let noteTitle = document.getElementById("addTitle");
   let note = document.getElementById("addTxt");
   let imp = document.getElementById("important");
 
+  // Getting previous items
   let notes = localStorage.getItem("notes");
 
   if (noteTitle.value.length != 0) {
@@ -23,8 +25,10 @@ document.getElementById("addBtn").addEventListener("click", function (e) {
 
     notesObj.push(myObj);
 
+    // Updating data
     localStorage.setItem("notes", JSON.stringify(notesObj));
 
+    // Resetting the input fields
     noteTitle.value = "";
     note.value = "";
     imp.checked = false;
@@ -35,9 +39,9 @@ document.getElementById("addBtn").addEventListener("click", function (e) {
   }
 });
 
+// Displaying the notes
 function showNotes() {
   let notes = localStorage.getItem("notes");
-
   let notesObj = [];
 
   if (notes != null) {
@@ -46,6 +50,7 @@ function showNotes() {
 
   let html = "";
   notesObj.forEach(function (element, index) {
+    // For important notes 
     if (element.imp == "on") {
       html += `
       <div class="noteCard mx-2 my-2 card" style="width: 18rem">
@@ -59,6 +64,7 @@ function showNotes() {
     }
   });
 
+  // For normal notes 
   notesObj.forEach(function (element, index) {
     if (element.imp == "off") {
       html += `
